@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LearnAfrica</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        /* Slideshow container */
+        .banner {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        /* Hide all images by default */
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Show the first image by default */
+        .banner img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to LearnAfrica</h1>
+            <p>Learn about prominent people in Africa.</p>
+            <div class="buttons">
+                <a th:href="@{/signup}"  class="button-link"><button type="submit" name="Signup">Signup</button></a>
+                <button type="menu" name="Menu">Menu</button>
+                <a th:href="@{/login}"  class="button-link"><button type="submit" name="login">Login</button></a>
+            </div>
+        </header>
+        
+        <div class="banner">
+            <img th:src="@{/images/images (5).jpg}" alt="Banner Image 1" class="active">
+            <img th:src="@{/images/Ngozi.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/OIP(4).jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/kenyata.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/OIP(1).jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/nelson.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/nkruma.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/oumou.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/test.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/yvonne.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/paul.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/wole.jfif}" alt="Banner Image 2">
+            <img th:src="@{/images/yaya.jfif}" alt="Banner Image 3">
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <h2>SPORTS</h2>
+                <p> Discover prominent African athletes and sports personalities. Learn about their achievements and contributions to the sports community.</p>
+            </div>
+            <div class="card">
+                <h2>ENTERTAINMENT</h2>
+                <p> Dive into the vibrant world of African entertainment. Explore detailed profiles of influential figures in music, film, and other entertainment sectors.</p>
+            </div>
+            <div class="card">
+                <h2>POLITICS</h2>
+                <p>Stay informed about significant political figures in Africa. Read about their histories, achievements, and impact on the continent.</p>
+            </div>
+            <div class="card">
+                <h2>CULTURE AND TOURISM</h2>
+                <p>Immerse yourself in the rich cultural heritage of Africa. Explore profiles of key cultural figures and understand their influence on African traditions and society.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for the Slideshow -->
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.banner img');
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        // Change image every 4 seconds
+        setInterval(showNextImage, 10000);
+    </script>
+</body>
+</html>

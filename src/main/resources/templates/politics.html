@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Politics - LearnAfrica</title>
+    <link rel="stylesheet" th:href="@{/css/esm.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Politics</h1>
+            <p>Explore the world of African politics and its prominent figures.</p>
+        </header>
+
+        <div class="content">
+            <div th:each="politic : ${politicsList}" class="card">
+                <img th:src="@{/images/{entity}/{id}(entity='politics', id=${politic.id})}" alt="Image of ${politic.name}">
+                <h2 th:text="${politic.name}">Politician Name</h2>
+                <p th:text="${politic.history}">Politician History</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

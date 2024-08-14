@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Entertainment - LearnAfrica</title>
+    <!-- <link rel="stylesheet" th:href="@{/css/style.css}"> -->
+    <link rel="stylesheet" th:href="@{/css/esm.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Entertainment</h1>
+            <p>Explore the world of African entertainment and its prominent figures.</p>
+        </header>
+
+        <div class="content">
+            <div th:each="entertainment : ${entertainments}" class="card">
+                <img th:src="@{/images/entertainment/{id}(id=${entertainment.id})}" alt="Image of ${entertainment.name}">
+                <h2 th:text="${entertainment.name}">Entertainment Name</h2>
+                <p th:text="${entertainment.history}">Entertainment History</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

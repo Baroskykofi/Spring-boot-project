@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports - LearnAfrica</title>
+    <!-- <link rel="stylesheet" th:href="@{/css/style.css}"> -->
+    <link rel="stylesheet" th:href="@{/css/esm.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sports</h1>
+            <p>Explore the world of African sports and its prominent figures.</p>
+        </header>
+
+        <div class="content">
+            <div th:each="sport : ${sportsList}" class="card">
+                <img th:src="@{/images/sports/{id}(id=${sport.id})}" alt="Image of ${sport.name}">
+                <h2 th:text="${sport.name}">Sport Name</h2>
+                <p th:text="${sport.history}">Sport History</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

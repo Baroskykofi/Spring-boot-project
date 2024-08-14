@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - LearnAfrica</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>LearnAfrica</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a th:href="@{/entertainment}" th:onclick="|loadContent('/entertainment')|">Entertainment</a></li>
+                    <li><a th:href="@{/sports}" th:onclick="|loadContent('/sports')|">Sports</a></li>
+                    <li><a th:href="@{/politics}" th:onclick="|loadContent('/politics')|">Politics</a></li>
+                    <li><a th:href="@{/culture}" th:onclick="|loadContent('/culture')|">Culture & Tourism</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <p>Welcome to the LearnAfrica Dashboard.</p>
+            </header>
+
+            <div class="content" id="content-area">
+                <section class="overview">
+                    <h2>Dashboard Overview</h2>
+                    <p>Welcome to the Dashboard!</p>
+                    
+                    <p>The Dashboard is your central hub for managing and navigating through different sections of the LearnAfrica platform. From here, you can quickly access key areas of the website and monitor various metrics.</p>
+    
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li><strong>Entertainment:</strong> Dive into the vibrant world of African entertainment. Explore detailed profiles of influential figures in music, film, and other entertainment sectors.</li>
+                        <li><strong>Sports:</strong> Discover prominent African athletes and sports personalities. Learn about their achievements and contributions to the sports community.</li>
+                        <li><strong>Politics:</strong> Stay informed about significant political figures in Africa. Read about their histories, achievements, and impact on the continent.</li>
+                        <li><strong>Culture:</strong> Immerse yourself in the rich cultural heritage of Africa. Explore profiles of key cultural figures and understand their influence on African traditions and society.</li>
+                    </ul>
+    
+                    <h3>Additional Tools:</h3>
+                    <ul>
+                        <li><strong>User Management:</strong> View and manage user accounts and profiles. Ensure a seamless experience for all users on the platform.</li>
+                        <li><strong>Content Creation:</strong> Add and update content across the different sections of the website. Keep the information fresh and relevant.</li>
+                        <li><strong>Reports and Analytics:</strong> Access various reports and analytics to track engagement and performance metrics. Make informed decisions based on data insights.</li>
+                    </ul>
+    
+                    <h3>Navigation:</h3>
+                    <p>Use the sidebar menu to navigate between different sections quickly. Each section provides detailed insights and information to help you understand and engage with African leaders, athletes, entertainers, and cultural figures.</p>
+                </section>
+            </div>
+
+            <footer class="main-footer">
+                <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content-area').innerHTML = html;
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+</html>

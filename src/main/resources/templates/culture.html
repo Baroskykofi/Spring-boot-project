@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Culture - LearnAfrica</title>
+    <link rel="stylesheet" th:href="@{/css/esm.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Culture</h1>
+            <p>Explore the rich culture of Africa and its significant contributions.</p>
+        </header>
+
+        <div class="content">
+            <div th:each="culture : ${cultures}" class="card">
+                <img th:src="@{/images/{entity}/{id}(entity='culture', id=${culture.id})}" alt="Image of ${culture.name}">
+                <h2 th:text="${culture.name}"></h2>
+                <p th:text="${culture.history}"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 LearnAfrica. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
